@@ -1,0 +1,8 @@
+
+
+RewriteEngine On
+
+# Redirect /register to register.html
+RewriteRule ^register/?$ welcome.php [L]
+
+

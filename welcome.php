@@ -14,7 +14,7 @@
         <p>Strive towards providing an intuitive platform to connect with the world and establish an excellent brand experience with your "point of view". Join us to be part of an online consumer neighbourhood</p>
         <p>Why Wait</p>
         <p><strong>Join And Earn</strong></p>
-        <p>It's Free !!!</p>
+        <!-- <p>It's Free !!!</p> -->
         <a href="register.php" class="btn">Get Started</a>
     </div>
 </body>
