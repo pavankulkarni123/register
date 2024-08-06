@@ -38,26 +38,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             unset($_SESSION['otp']);
             unset($_SESSION['form_data']);
             
-            // Send thank you email
-            $subject = "Thank You for Registration";
-            $message = "Dear $full_name,\n\nThank you for registering with us. We will contact you soon.\n\nBest regards,\nYour Company Name";
-
-            $headers = "From:pavankulkarni904@gmail.com";
-            
-             // Replace with your domain
-
-            // Send email using mail function
-            if (mail($email, $subject, $message, $headers)) {
-                echo "<script>
-                    alert('Data saved successfully. Thank you for registration! We will contact you soon.');
-                    window.location.href = 'thank_you.php';
-                </script>";
-            } else {
-                echo "<script>
-                    alert('Data saved successfully, but failed to send thank you email.');
-                    window.location.href = 'thank_you.php';
-                </script>";
-            }
+            // Show success message
+            echo "<script>
+                alert('Data saved successfully. Thank you for registration! We will launch soon.');
+                window.location.href = 'thank_you.php';
+            </script>";
         } else {
             echo "Error: " . $sql . "<br>" . $conn->error;
         }
@@ -72,6 +57,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 }
 ?>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -93,7 +79,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <?php endif; ?>
             <div class="buttons">
                 <button class="submit">
-                    <span class="btnText">Submit</span>
+                    <span class="btnText">Verify</span>
                     <i class="uil uil-navigator"></i>
                 </button>
             </div>

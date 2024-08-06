@@ -1,17 +1,11 @@
 <?php
 session_start();
-require 'PHPMailer/PHPMailerAutoload.php'; // Update the path according to your setup
-
-use PHPMailer\PHPMailer\PHPMailer;
-use PHPMailer\PHPMailer\Exception;
-use PHPMailer\PHPMailer\SMTP;
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Get form data
     $full_name = $_POST['full_name'];
     $gender = $_POST['gender'];
     $birth_date = $_POST['birth_date'];
-    $country_code = $_POST['country_code'];
     $mobile_number = $_POST['mobile_number'];
     $email = $_POST['email'];
     $country = $_POST['country'];
@@ -65,32 +59,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Check if response is a non-empty string (message ID or success response)
     if ($httpCode == 200 && !empty($response)) {
         // Assuming non-empty response is a success (message ID or confirmation)
-        // Send thank you email using PHPMailer
-        $mail = new PHPMailer;
-
-        // SMTP configuration
-        $mail->isSMTP();
-        $mail->Host = 'smtp.gmail.com'; // Set SMTP server
-        $mail->SMTPAuth = true;
-        $mail->Username = 'pavankulkarni904@gmail.com'; // Your SMTP username (Gmail address)
-        $mail->Password = 'wzwkugdryfzcqnzn'; // Your SMTP password (Gmail password)
-        $mail->SMTPSecure = 'tls';
-        $mail->Port = 587;
-
-        $mail->setFrom('pavankulkarni904@gmail.com', 'Pavan Kulkarni'); // From email and name
-        $mail->addAddress($email); // Add a recipient
-
-        // Email subject and body
-        $mail->Subject = 'Thank You for Registration';
-        $mail->Body = "Dear $full_name,\n\nThank you for registering with us. We will contact you soon.\n\nBest regards,\nVirabh";
-
-        if ($mail->send()) {
-            // Redirect to OTP verification page
-            header("Location: verify_otp.php");
-            exit();
-        } else {
-            echo "Failed to send thank you email. Mailer Error: " . $mail->ErrorInfo;
-        }
+        // Redirect to OTP verification page
+        header("Location: verify_otp.php");
+        exit();
     } else {
         echo "Failed to send OTP: " . $response;
     }

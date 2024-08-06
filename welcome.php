@@ -15,7 +15,7 @@
         <p>Why Wait</p>
         <p><strong>Join And Earn</strong></p>
         <!-- <p>It's Free !!!</p> -->
-        <a href="register.php" class="btn">Get Started</a>
+        <a href="register.php" class="btn">Get Started</a>  
     </div>
 </body>
 </html>

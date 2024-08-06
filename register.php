@@ -68,7 +68,7 @@
                 </div>
                 <div class="buttons">
                     <button class="submit">
-                        <span class="btnText">Submit</span>
+                        <span class="btnText">Verify</span>
                         <i class="uil uil-navigator"></i>
                     </button>
                 </div>
